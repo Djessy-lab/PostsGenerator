@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full items-center z-40">
     <div
-      class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg  dark:shadow-emerald-950 dark:bg-gray-800 bg-gray-100"
+      class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg  dark:shadow-emerald-950 dark:bg-gray-900 bg-gray-100"
     >
       <div class="flex flex-col items-center">
         <div class="w-[80%] max-lg:w-[90%]">
@@ -53,13 +53,13 @@
             <button
               v-if="!isLoadingIdeas"
               @click="generatePostsIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-950 dark:hover:bg-gray-800 hover:shadow-sm shadow-lg hover:scale-y-95 transition-all duration-300 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               Générer
             </button>
             <button
               v-if="isLoadingIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-950 dark:hover:bg-gray-800 hover:shadow-sm shadow-lg hover:scale-y-95 transition-all duration-300 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
             </button>
@@ -87,13 +87,13 @@
           v-if="!isLoading"
           @click="generatePosts"
           :disabled="isLoadingIdeas || isLoading"
-          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
+          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-950 dark:hover:bg-gray-800 hover:shadow-sm shadow-lg hover:scale-y-95 transition-all duration-300 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
         >
           Générer
         </button>
         <button
           v-if="isLoading"
-          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-950 dark:hover:bg-gray-800 hover:shadow-sm shadow-lg hover:scale-y-95 transition-all duration-300 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg flex justify-center items-center"
         >
           <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
         </button>
