@@ -11,10 +11,12 @@
       Exporter
     </button>
     <div>
-      <table class="w-full border-collapse border border-gray-600 mt-4">
+      <table class="max-w-full border-collapse border border-gray-600 mt-4">
         <thead>
           <tr>
-            <th class="border border-gray-600 p-2 text-left dark:text-white">
+            <th
+              class="max-lg:hidden border border-gray-600 p-2 text-left dark:text-white"
+            >
               Thème
             </th>
             <th class="border border-gray-600 p-2 text-left dark:text-white">
@@ -31,11 +33,16 @@
             :key="index"
             class="border-b border-gray-600"
           >
-            <td class="border border-gray-600 p-2 dark:text-white">
+            <td
+              class="max-lg:hidden border border-gray-600 p-2 dark:text-white"
+            >
               {{ themes[index] }}
             </td>
             <td class="border border-gray-600 p-2 dark:text-white">
-              <div v-if="editMode[index]" class="flex max-lg:flex-col w-full mb-2">
+              <div
+                v-if="editMode[index]"
+                class="flex max-lg:flex-col w-full mb-2"
+              >
                 <input
                   type="text"
                   class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 mr-2 shadow focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
@@ -61,6 +68,9 @@
                   isLoadingEdit && editMode[index] ? 'opacity-30 relative' : '',
                 ]"
               >
+                <div class="max-lg:block hidden w-full bg-gray-100 dark:bg-gray-800 border-b-4 border-emerald-200 dark:border-emerald-800 sticky top-0">
+                  <p><span class="mr-2">Thème :</span>{{ themes[index] }}</p>
+                </div>
                 <p class="font-serif text-sm">{{ post }}</p>
               </div>
               <Icon
