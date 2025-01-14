@@ -1,15 +1,17 @@
 <template>
   <div class="flex flex-col w-full items-center z-40">
     <div
-      class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg dark:shadow-emerald-950 dark:bg-gray-800 bg-gray-100"
+      class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg  dark:shadow-emerald-950 dark:bg-gray-800 bg-gray-100"
     >
-      <h2 class="text-center text-3xl dark:text-white">
-        Générer une série de posts
-      </h2>
-      <hr class="mt-4 dark:border-emerald-300 border-emerald-600" />
-      <div class="flex flex-col items-center mt-8">
-        <div class="flex flex-row items-center mb-4">
-          <label for="postsCount" class="font-bold dark:text-white text-xl"
+      <div class="flex flex-col items-center">
+        <div class="w-[80%] max-lg:w-[90%]">
+          <h2 class="text-3xl dark:text-gray-200">
+            Générer une série de posts
+          </h2>
+          <hr class="mt-4 mb-8 dark:border-emerald-300 border-emerald-600" />
+        </div>
+        <div class="flex flex-row w-[80%] max-lg:w-[90%] mb-4">
+          <label for="postsCount" class="font-bold dark:text-gray-200 text-xl"
             >Nombre de posts :
             <span
               class="dark:text-emerald-300 text-emerald-600 ml-2 text-2xl"
@@ -18,33 +20,35 @@
           >
           <button
             @click="postsCount > 1 ? postsCount-- : null"
-            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
+            class="group dark:bg-gray-700 bg-gray-200 shadow hover:shadow-sm rounded-lg ml-2 p-1 w-8 h-8 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
           >
             <Icon
               name="ic:round-minus"
-              class="text-2xl dark:text-emerald-300 text-emerald-600"
+              class="text-2xl dark:text-emerald-300 text-emerald-600 group-hover:scale-75 transition-all duration-300"
             />
           </button>
           <button
             @click="postsCount++"
-            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
+            class="group dark:bg-gray-700 bg-gray-200 shadow hover:shadow-sm rounded-lg ml-2 p-1 w-8 h-8 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
           >
             <Icon
               name="ic:round-plus"
-              class="text-2xl dark:text-emerald-300 text-emerald-600"
+              class="text-2xl dark:text-emerald-300 text-emerald-600 group-hover:scale-125 transition-all duration-300"
             />
           </button>
         </div>
-        <div class="flex flex-col mt-4 lg:w-96">
-          <label for="postsIdeas" class="font-bold dark:text-white text-xl"
+        <div class="flex flex-col mt-4 w-full">
+          <label
+            for="postsIdeas"
+            class="font-bold dark:text-gray-200 text-xl mx-auto w-[80%] max-lg:w-[90%]"
             >Idées 💡:</label
           >
-          <div class="flex">
+          <div class="flex justify-center">
             <input
               type="text"
               v-model="themeIdea"
               placeholder="Vuejs"
-              class="ml-2 rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-white p-2 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
+              class="ml-2 w-[65%] max-lg:w-[65%] rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-gray-200 p-2 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
             />
             <button
               v-if="!isLoadingIdeas"
@@ -61,8 +65,10 @@
             </button>
           </div>
         </div>
-        <div class="flex flex-col mt-4">
-          <label for="themes" class="font-bold dark:text-white text-xl"
+        <div class="flex flex-col mt-4 w-full">
+          <label
+            for="themes"
+            class="font-bold dark:text-gray-200 text-xl mx-auto w-[80%] max-lg:w-[90%]"
             >{{ postsCount > 1 ? "Thèmes" : "Thème" }} :</label
           >
           <div
@@ -72,7 +78,7 @@
           >
             <textarea
               v-model="tempThemes[index]"
-              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 h-20 lg:w-96 w-80 dark:bg-gray-700 bg-gray-200 dark:text-white"
+              class="p-2 shadow rounded-lg mx-auto focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 h-20 w-[80%] max-lg:w-[90%] dark:bg-gray-700 bg-gray-200 dark:text-gray-200"
               placeholder="L'impact d'une landing page sur votre entreprise"
             ></textarea>
           </div>
@@ -81,24 +87,17 @@
           v-if="!isLoading"
           @click="generatePosts"
           :disabled="isLoadingIdeas || isLoading"
-          class="mt-4 w-32 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
+          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
         >
           Générer
         </button>
         <button
           v-if="isLoading"
-          class="mt-4 max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+          class="mt-4 w-[80%] max-lg:w-[90%] h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
         >
           <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
         </button>
       </div>
-      <Toast
-        :modelValue="toastVisible"
-        :title="toastType === 'error' ? 'Erreur' : 'Information'"
-        :message="toastMessage"
-        :type="toastType"
-        @update:modelValue="toastVisible = false"
-      />
     </div>
 
     <div class="w-[70%] max-lg:w-[90%] mt-4">
@@ -110,6 +109,13 @@
         @edit-post="handleEditPost"
       />
     </div>
+    <Toast
+      :modelValue="toastVisible"
+      :title="toastType === 'error' ? 'Erreur' : 'Information'"
+      :message="toastMessage"
+      :type="toastType"
+      @update:modelValue="toastVisible = false"
+    />
   </div>
 </template>
 
@@ -174,6 +180,13 @@ export default {
       this.isLoading = false;
     },
     async generatePostsIdeas() {
+      if (!this.themeIdea) {
+        this.showToast(
+          "Veuillez entrer au moins un sujet avant de générer des thèmes.",
+          "error"
+        );
+        return;
+      }
       this.isLoadingIdeas = true;
       const prompt = `Génére ${this.postsCount} idées de posts ${this.themeIdea} pour LinkedIn sous forme de phrases courtes, séparées par un point-virgule, sans introduction ni conclusion.`;
       const response = await fetch(

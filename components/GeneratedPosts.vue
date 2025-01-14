@@ -15,14 +15,14 @@
         <thead>
           <tr>
             <th
-              class="max-lg:hidden border border-gray-600 p-2 text-left dark:text-white"
+              class="max-lg:hidden border border-gray-600 p-2 text-left dark:text-gray-200"
             >
               Thème
             </th>
-            <th class="border border-gray-600 p-2 text-left dark:text-white">
+            <th class="border border-gray-600 p-2 text-left dark:text-gray-200">
               Contenu
             </th>
-            <th class="border border-gray-600 p-2 text-left dark:text-white">
+            <th class="border border-gray-600 p-2 text-left dark:text-gray-200">
               Actions
             </th>
           </tr>
@@ -34,11 +34,11 @@
             class="border-b border-gray-600"
           >
             <td
-              class="max-lg:hidden border border-gray-600 p-2 dark:text-white"
+              class="max-lg:hidden border border-gray-600 p-2 dark:text-gray-200"
             >
               {{ themes[index] }}
             </td>
-            <td class="border border-gray-600 p-2 dark:text-white">
+            <td class="border border-gray-600 p-2 dark:text-gray-200">
               <div
                 v-if="editMode[index]"
                 class="flex max-lg:flex-col w-full mb-2"
@@ -79,7 +79,7 @@
                 class="absolute top-[50%] right-[50%] text-7xl text-black opacity-none"
               />
             </td>
-            <td class="border border-gray-600 p-2 dark:text-white">
+            <td class="border border-gray-600 p-2 dark:text-gray-200">
               <div class="flex flex-col">
                 <button @click="toggleEditMode(index)">
                   <Icon
