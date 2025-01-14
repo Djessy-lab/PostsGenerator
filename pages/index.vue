@@ -4,7 +4,7 @@
       @click="themeToggle"
       :class="[
         colorMode.value === 'dark' ? 'text-emerald-300' : 'text-emerald-600',
-        'text-2xl sticky top-3 left-[97%] z-50 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 rounded-lg h-6',
+        'text-2xl sticky top-3 left-[97%] z-50 focus:outline-none focus:ring-1 dark:focus:ring-emerald-300 focus:ring-emerald-600 rounded-lg h-6',
       ]"
     >
       <Icon
