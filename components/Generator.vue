@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full items-center z-50">
+  <div class="flex flex-col w-full items-center z-40">
     <div
       class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg dark:shadow-emerald-950 dark:bg-gray-800 bg-gray-100"
     >

@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="posts.length"
-    class="drop-shadow-xl dark:shadow-lg dark:shadow-emerald-950 rounded-xl p-6 dark:bg-gray-800 bg-gray-100 relative z-50 my-20"
+    class="drop-shadow-xl dark:shadow-lg dark:shadow-emerald-950 rounded-xl p-6 dark:bg-gray-800 bg-gray-100 relative z-40 my-20"
   >
     <h3 class="font-bold dark:text-gray-300">Posts générés :</h3>
     <button
@@ -11,7 +11,7 @@
       Exporter
     </button>
     <div>
-      <table class="min-w-full border-collapse border border-gray-600 mt-4">
+      <table class="w-full border-collapse border border-gray-600 mt-4">
         <thead>
           <tr>
             <th class="border border-gray-600 p-2 text-left dark:text-white">
@@ -35,7 +35,7 @@
               {{ themes[index] }}
             </td>
             <td class="border border-gray-600 p-2 dark:text-white">
-              <div v-if="editMode[index]" class="flex w-full mb-2">
+              <div v-if="editMode[index]" class="flex max-lg:flex-col w-full mb-2">
                 <input
                   type="text"
                   class="w-full p-2 rounded-lg bg-gray-200 dark:bg-gray-700 mr-2 shadow focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
@@ -44,7 +44,7 @@
                 /><button
                   v-if="!isLoadingEdit"
                   @click="editPost(index)"
-                  class="max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+                  class="w-32 max-lg:w-full h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
                 >
                   Valider
                 </button>
