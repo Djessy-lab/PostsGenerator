@@ -1,10 +1,10 @@
 <template>
-  <div class="dark:bg-gray-950 bg-white relative">
+  <div class="relative">
     <button
       @click="themeToggle"
       :class="[
-        colorMode.value === 'dark' ? 'text-lime-300' : 'text-lime-600',
-        'text-2xl absolute top-3 right-3 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 rounded-lg',
+        colorMode.value === 'dark' ? 'text-emerald-300' : 'text-emerald-600',
+        'text-2xl absolute top-3 right-3 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 rounded-lg h-6',
       ]"
     >
       <Icon
@@ -17,7 +17,7 @@
       />
     </button>
     <div class="flex justify-center">
-      <h1 class="text-center text-6xl dark:text-lime-300 text-lime-600 mt-2">
+      <h1 class="text-center text-6xl dark:text-emerald-300 text-emerald-600 mt-2">
         Posts Generator
       </h1>
     </div>

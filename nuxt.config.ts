@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_KEY: process.env.VUE_APP_API_KEY,
+      ANTHROPIC_API_KEY: process.env.VUE_APP_ANTHROPIC_API_KEY,
     },
   },
   tailwindcss: {

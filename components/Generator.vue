@@ -1,31 +1,38 @@
 <template>
-  <div class="flex flex-col w-full items-center">
+  <div class="flex flex-col w-full items-center z-50">
     <div
-      class="shadow-xl rounded-xl p-6 w-[70%] dark:border dark:border-lime-300  dark:bg-gray-800 bg-gray-100"
+      class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg dark:shadow-emerald-950 dark:bg-gray-800 bg-gray-100"
     >
       <h2 class="text-center text-3xl dark:text-white">
         Générer une série de posts
       </h2>
-      <hr class="mt-4 dark:border-lime-300 border-lime-600" />
+      <hr class="mt-4 dark:border-emerald-300 border-emerald-600" />
       <div class="flex flex-col items-center mt-8">
         <div class="flex flex-row items-center mb-4">
           <label for="postsCount" class="font-bold dark:text-white text-xl"
             >Nombre de posts :
-            <span class="dark:text-lime-300 text-lime-600 ml-2 text-2xl">{{
-              postsCount
-            }}</span></label
+            <span
+              class="dark:text-emerald-300 text-emerald-600 ml-2 text-2xl"
+              >{{ postsCount }}</span
+            ></label
           >
           <button
             @click="postsCount > 1 ? postsCount-- : null"
-            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
+            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
           >
-            <Icon name="ic:round-minus" class="text-2xl dark:text-lime-300 text-lime-600" />
+            <Icon
+              name="ic:round-minus"
+              class="text-2xl dark:text-emerald-300 text-emerald-600"
+            />
           </button>
           <button
             @click="postsCount++"
-            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
+            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
           >
-            <Icon name="ic:round-plus" class="text-2xl dark:text-lime-300 text-lime-600" />
+            <Icon
+              name="ic:round-plus"
+              class="text-2xl dark:text-emerald-300 text-emerald-600"
+            />
           </button>
         </div>
         <div class="flex flex-col mt-4 w-96">
@@ -37,18 +44,18 @@
               type="text"
               v-model="themeIdea"
               placeholder="Vuejs"
-              class="ml-2 rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-white p-2 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
+              class="ml-2 rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-white p-2 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600"
             />
             <button
               v-if="!isLoadingIdeas"
               @click="generatePostsIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               Générer
             </button>
             <button
               v-if="isLoadingIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
             </button>
@@ -65,7 +72,7 @@
           >
             <textarea
               v-model="tempThemes[index]"
-              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 h-20 w-96 dark:bg-gray-700 bg-gray-200 dark:text-white"
+              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 h-20 w-96 dark:bg-gray-700 bg-gray-200 dark:text-white"
               placeholder="L'impact d'une landing page sur votre entreprise"
             ></textarea>
           </div>
@@ -74,13 +81,13 @@
           v-if="!isLoading"
           @click="generatePosts"
           :disabled="isLoadingIdeas || isLoading"
-          class="mt-4 w-32 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
+          class="mt-4 w-32 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
         >
           Générer
         </button>
         <button
           v-if="isLoading"
-          class="mt-4 max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+          class="mt-4 max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
         >
           <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
         </button>
@@ -94,8 +101,14 @@
       />
     </div>
 
-    <div class="w-[70%] mt-4">
-      <GeneratedPosts :posts="generatedPosts" :themes="tempThemes" />
+    <div class="w-[70%] max-lg:w-[90%] mt-4">
+      <GeneratedPosts
+        :posts="generatedPosts"
+        :themes="tempThemes"
+        :isLoadingEdit="isLoadingEdit"
+        :endLoading="endLoading"
+        @edit-post="handleEditPost"
+      />
     </div>
   </div>
 </template>
@@ -111,6 +124,8 @@ export default {
       generatedPosts: [],
       isLoading: false,
       isLoadingIdeas: false,
+      isLoadingEdit: false,
+      endLoading: false,
       toastVisible: false,
       toastMessage: "",
       toastType: "",
@@ -129,7 +144,6 @@ export default {
         return;
       }
 
-      console.log(this.themes);
       this.generatedPosts = [];
       this.isLoading = true;
       for (let theme of this.themes) {
@@ -193,6 +207,41 @@ export default {
       this.toastMessage = message;
       this.toastType = type;
       this.toastVisible = true;
+    },
+    handleEditPost(editPrompt, index) {
+      const postToEdit = this.generatedPosts[index];
+      const prompt = `Reformule ce post pour qu'il corresponde aux critères suivants : ${editPrompt}. Post original : ${postToEdit}`;
+
+      this.reformulatePost(prompt, index);
+    },
+    async reformulatePost(prompt, index) {
+      this.endLoading = false;
+      this.isLoadingEdit = true;
+      try {
+        const response = await fetch(
+          "https://api.mistral.ai/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${useRuntimeConfig().public.API_KEY}`,
+            },
+            body: JSON.stringify({
+              messages: [{ role: "user", content: prompt }],
+              temperature: 0.5,
+              model: "mistral-large-latest",
+            }),
+          }
+        );
+        const data = await response.json();
+        const reformulatedPost = data.choices[0].message.content.trim();
+
+        this.generatedPosts[index] = reformulatedPost;
+        this.isLoadingEdit = false;
+        this.endLoading = true;
+      } catch (error) {
+        console.error("Erreur lors de la reformulation du post:", error);
+      }
     },
   },
 };
