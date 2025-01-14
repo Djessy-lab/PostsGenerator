@@ -3,7 +3,7 @@
     <div
       class="drop-shadow-xl rounded-xl p-6 w-[70%] max-lg:w-[90%] dark:shadow-lg  dark:shadow-emerald-950 dark:bg-gray-900 bg-gray-100"
     >
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center py-4">
         <div class="w-[80%] max-lg:w-[90%]">
           <h2 class="text-3xl dark:text-gray-200">
             Générer une série de posts
@@ -89,7 +89,7 @@
           :disabled="isLoadingIdeas || isLoading"
           class="mt-4 w-[80%] max-lg:w-[90%] h-10 dark:bg-white dark:text-black dark:hover:bg-white bg-gray-950 hover:shadow-sm shadow-lg hover:scale-y-95 transition-all duration-300 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg"
         >
-          Générer
+          Générer 📑
         </button>
         <button
           v-if="isLoading"

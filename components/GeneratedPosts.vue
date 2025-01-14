@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="posts.length"
-    class="drop-shadow-xl dark:shadow-lg dark:shadow-emerald-950 rounded-xl p-6 dark:bg-gray-800 bg-gray-100 relative z-40 my-20"
+    class="drop-shadow-xl dark:shadow-lg dark:shadow-emerald-950 rounded-xl p-6 dark:bg-gray-900 bg-gray-100 relative z-40 my-20"
   >
     <h3 class="font-bold dark:text-gray-300">Posts générés :</h3>
     <button
@@ -15,14 +15,14 @@
         <thead>
           <tr>
             <th
-              class="max-lg:hidden border border-gray-600 p-2 text-left dark:text-gray-200"
+              class="max-lg:hidden border border-gray-600 p-2 text-left dark:text-gray-300"
             >
               Thème
             </th>
-            <th class="border border-gray-600 p-2 text-left dark:text-gray-200">
+            <th class="border border-gray-600 p-2 text-left dark:text-gray-300">
               Contenu
             </th>
-            <th class="border border-gray-600 p-2 text-left dark:text-gray-200">
+            <th class="border border-gray-600 p-2 text-left dark:text-gray-300">
               Actions
             </th>
           </tr>
@@ -34,11 +34,11 @@
             class="border-b border-gray-600"
           >
             <td
-              class="max-lg:hidden border border-gray-600 p-2 dark:text-gray-200"
+              class="max-lg:hidden border border-gray-600 p-2 dark:text-gray-300"
             >
               {{ themes[index] }}
             </td>
-            <td class="border border-gray-600 p-2 dark:text-gray-200">
+            <td class="border border-gray-600 p-2 dark:text-gray-300">
               <div
                 v-if="editMode[index]"
                 class="flex max-lg:flex-col w-full mb-2"
@@ -51,13 +51,13 @@
                 /><button
                   v-if="!isLoadingEdit"
                   @click="editPost(index)"
-                  class="w-32 max-lg:w-full h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+                  class="w-32 max-lg:w-full h-10 bg-gray-950 hover:bg-gray-800 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
                 >
                   Valider
                 </button>
                 <button
                   v-if="isLoadingEdit"
-                  class="max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+                  class="max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-950 hover:bg-gray-800 focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
                 >
                   <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
                 </button>
@@ -68,7 +68,7 @@
                   isLoadingEdit && editMode[index] ? 'opacity-30 relative' : '',
                 ]"
               >
-                <div class="max-lg:block hidden w-full bg-gray-100 dark:bg-gray-800 border-b-4 border-emerald-200 dark:border-emerald-800 sticky -top-1">
+                <div class="max-lg:block hidden w-full bg-gray-100 dark:bg-gray-900 border-b-4 border-emerald-200 dark:border-emerald-800 sticky -top-1">
                   <p><span class="mr-2">Thème :</span>{{ themes[index] }}</p>
                 </div>
                 <p class="font-serif text-sm">{{ post }}</p>
@@ -79,7 +79,7 @@
                 class="absolute top-[50%] right-[50%] text-7xl text-black opacity-none"
               />
             </td>
-            <td class="border border-gray-600 p-2 dark:text-gray-200">
+            <td class="border border-gray-600 p-2 dark:text-gray-300">
               <div class="flex flex-col">
                 <button @click="toggleEditMode(index)">
                   <Icon
