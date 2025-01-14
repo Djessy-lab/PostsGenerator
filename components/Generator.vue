@@ -35,7 +35,7 @@
             />
           </button>
         </div>
-        <div class="flex flex-col mt-4 w-96">
+        <div class="flex flex-col mt-4 lg:w-96">
           <label for="postsIdeas" class="font-bold dark:text-white text-xl"
             >Idées 💡:</label
           >
@@ -72,7 +72,7 @@
           >
             <textarea
               v-model="tempThemes[index]"
-              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 h-20 w-96 dark:bg-gray-700 bg-gray-200 dark:text-white"
+              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-emerald-300 focus:ring-emerald-600 h-20 lg:w-96 w-80 dark:bg-gray-700 bg-gray-200 dark:text-white"
               placeholder="L'impact d'une landing page sur votre entreprise"
             ></textarea>
           </div>
