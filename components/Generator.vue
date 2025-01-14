@@ -1,32 +1,35 @@
 <template>
   <div class="flex flex-col w-full items-center">
     <div
-      class="shadow-lg rounded-xl p-6 w-[70%] border border-lime-300 bg-gray-800"
+      class="shadow-xl rounded-xl p-6 w-[70%] dark:border dark:border-lime-300  dark:bg-gray-800 bg-gray-100"
     >
-      <h2 class="text-center text-3xl text-white">
+      <h2 class="text-center text-3xl dark:text-white">
         Générer une série de posts
       </h2>
-      <hr class="mt-4 border-lime-300" />
+      <hr class="mt-4 dark:border-lime-300 border-lime-600" />
       <div class="flex flex-col items-center mt-8">
         <div class="flex flex-row items-center mb-4">
-          <label for="postsCount" class="font-bold text-white text-xl"
+          <label for="postsCount" class="font-bold dark:text-white text-xl"
             >Nombre de posts :
-            <span class="text-lime-300 ml-2 text-2xl">{{
+            <span class="dark:text-lime-300 text-lime-600 ml-2 text-2xl">{{
               postsCount
             }}</span></label
           >
           <button
             @click="postsCount > 1 ? postsCount-- : null"
-            class="bg-gray-700 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 focus:ring-lime-300"
+            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
           >
-            <Icon name="ic:round-minus" class="text-2xl text-lime-300" />
+            <Icon name="ic:round-minus" class="text-2xl dark:text-lime-300 text-lime-600" />
           </button>
-          <button @click="postsCount++" class="bg-gray-700 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 focus:ring-lime-300">
-            <Icon name="ic:round-plus" class="text-2xl text-lime-300" />
+          <button
+            @click="postsCount++"
+            class="dark:bg-gray-700 bg-gray-200 rounded-lg ml-2 p-1 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
+          >
+            <Icon name="ic:round-plus" class="text-2xl dark:text-lime-300 text-lime-600" />
           </button>
         </div>
         <div class="flex flex-col mt-4 w-96">
-          <label for="postsIdeas" class="font-bold text-white text-xl"
+          <label for="postsIdeas" class="font-bold dark:text-white text-xl"
             >Idées 💡:</label
           >
           <div class="flex">
@@ -34,25 +37,25 @@
               type="text"
               v-model="themeIdea"
               placeholder="Vuejs"
-              class="ml-2 rounded-lg bg-gray-700 text-white p-2 focus:outline-none focus:ring-2 focus:ring-lime-300"
+              class="ml-2 rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-white p-2 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600"
             />
             <button
               v-if="!isLoadingIdeas"
               @click="generatePostsIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-lime-300 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               Générer
             </button>
             <button
               v-if="isLoadingIdeas"
-              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-lime-300 text-white font-bold py-2 px-4 rounded-lg"
+              class="ml-4 w-32 h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg"
             >
               <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
             </button>
           </div>
         </div>
         <div class="flex flex-col mt-4">
-          <label for="themes" class="font-bold text-white text-xl"
+          <label for="themes" class="font-bold dark:text-white text-xl"
             >{{ postsCount > 1 ? "Thèmes" : "Thème" }} :</label
           >
           <div
@@ -62,7 +65,7 @@
           >
             <textarea
               v-model="tempThemes[index]"
-              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 h-20 w-96 bg-gray-700 text-white"
+              class="p-2 shadow rounded-lg focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 h-20 w-96 dark:bg-gray-700 bg-gray-200 dark:text-white"
               placeholder="L'impact d'une landing page sur votre entreprise"
             ></textarea>
           </div>
@@ -71,13 +74,13 @@
           v-if="!isLoading"
           @click="generatePosts"
           :disabled="isLoadingIdeas || isLoading"
-          class="mt-4 w-32 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-lime-300 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
+          class="mt-4 w-32 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg shadow-xl transition duration-200"
         >
           Générer
         </button>
         <button
           v-if="isLoading"
-          class="mt-4 max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-lime-300 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
+          class="mt-4 max-w-32 min-w-32 min-h-10 max-h-10 bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 dark:focus:ring-lime-300 focus:ring-lime-600 text-white font-bold py-2 px-4 rounded-lg shadow flex justify-center items-center"
         >
           <Icon name="eos-icons:three-dots-loading" class="text-3xl" />
         </button>
