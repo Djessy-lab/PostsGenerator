@@ -10,6 +10,6 @@
 </template>
 <style>
 * {
-  font-family: "Jersey 15", sans-serif;
+  font-family: "Mate";
 }
 </style>

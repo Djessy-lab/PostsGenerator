@@ -71,7 +71,7 @@
                 <div class="max-lg:block hidden w-full bg-gray-100 dark:bg-gray-900 border-b-4 border-emerald-200 dark:border-emerald-800 sticky -top-1">
                   <p><span class="mr-2">Thème :</span>{{ themes[index] }}</p>
                 </div>
-                <p class="font-serif text-sm">{{ post }}</p>
+                <p class="text-sm">{{ post }}</p>
               </div>
               <Icon
                 v-if="isLoadingEdit && editMode[index]"

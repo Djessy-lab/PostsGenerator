@@ -5,13 +5,13 @@
     >
       <div class="flex flex-col items-center py-4">
         <div class="w-[80%] max-lg:w-[90%]">
-          <h2 class="text-3xl dark:text-gray-200">
+          <h2 class="text-2xl dark:text-gray-200">
             Générer une série de posts
           </h2>
           <hr class="mt-4 mb-8 dark:border-emerald-300 border-emerald-600" />
         </div>
         <div class="flex flex-row w-[80%] max-lg:w-[90%] mb-4">
-          <label for="postsCount" class="font-bold dark:text-gray-200 text-xl"
+          <label for="postsCount" class="font-bold dark:text-gray-200 text-lg"
             >Nombre de posts :
             <span
               class="dark:text-emerald-300 text-emerald-600 ml-2 text-2xl"
@@ -40,7 +40,7 @@
         <div class="flex flex-col mt-4 w-full">
           <label
             for="postsIdeas"
-            class="font-bold dark:text-gray-200 text-xl mx-auto w-[80%] max-lg:w-[90%]"
+            class="font-bold dark:text-gray-200 text-lg mx-auto w-[80%] max-lg:w-[90%]"
             >Idées 💡:</label
           >
           <div class="flex justify-center">
@@ -68,7 +68,7 @@
         <div class="flex flex-col mt-4 w-full">
           <label
             for="themes"
-            class="font-bold dark:text-gray-200 text-xl mx-auto w-[80%] max-lg:w-[90%]"
+            class="font-bold dark:text-gray-200 text-lg mx-auto w-[80%] max-lg:w-[90%]"
             >{{ postsCount > 1 ? "Thèmes" : "Thème" }} :</label
           >
           <div
@@ -153,7 +153,7 @@ export default {
       this.generatedPosts = [];
       this.isLoading = true;
       for (let theme of this.themes) {
-        const prompt = `Rédige un post LinkedIn captivant sur le thème : ${theme}. Adopte un ton professionnel mais accessible. Termine par une question pour encourager les commentaires.`;
+        const prompt = `Rédige un post LinkedIn captivant sur le thème : ${theme}. Adopte un ton professionnel mais accessible. Tu dois prendre un air naturel et non rédigé par une IA. Crée des moments 'haha' pour les lecteurs. Termine par une question pour encourager les commentaires.`;
         try {
           const response = await fetch(
             "https://api.mistral.ai/v1/chat/completions",

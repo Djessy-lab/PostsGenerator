@@ -12,7 +12,7 @@
         name="line-md:sunny-filled-loop-to-moon-filled-loop-transition"
       />
       <Icon
-        v-if="colorMode.value === 'light'"
+        v-else
         name="line-md:moon-alt-to-sunny-outline-loop-transition"
       />
     </button>
